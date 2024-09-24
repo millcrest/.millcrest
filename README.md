@@ -76,6 +76,11 @@ This document outlines the coding standards and best practices for our project. 
 ## Python
 
 ### General
+- Fight the urge to abstract to classes / shared libraries
+- Import numpy as np > from numpy import sum
+- Use the linters: Ruff
+- Abstracting for code simplicity still good
+- Use Jupyter Notebooks
 - Follow the [PEP 8](https://www.python.org/dev/peps/pep-0008/) style guide for Python code
 - Use meaningful variable names in snake_case
 - Use PascalCase for class names
