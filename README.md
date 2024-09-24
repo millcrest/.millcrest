@@ -30,3 +30,158 @@ We're here to build awesome software, and build it fast. These principles are ou
 ---
 
 > *Acknowledgment: These principles draw significant inspiration from and pay homage to the software development philosophy of id Software, particularly the principles employed during the development of Doom. Millcrest has adapted and expanded upon their approach to suit modern, general software development needs while maintaining the spirit of pragmatism, efficiency, and excellence that characterised id Software's groundbreaking work.*
+
+---
+
+# Development Design Rules
+
+This document outlines the coding standards and best practices for our project. These rules ensure consistency across our codebase and improve maintainability.
+
+## Frontend (React & TypeScript)
+
+### Tailwind CSS
+- Use lowercase for all Tailwind classes
+- Use hyphens (-) to separate words in class names, not underscores (_)
+- Example: `className="text-lg font-bold text-blue-500"`
+
+### React
+- Use functional components with hooks instead of class components
+- Use PascalCase for component names
+- Use camelCase for prop names
+- Prefer destructuring for props
+- Example:
+  ```tsx
+  const UserProfile: React.FC<UserProfileProps> = ({ name, age }) => {
+    // ...
+  }
+  ```
+
+### TypeScript
+- Use interfaces for object shapes, especially for component props
+- Use type for unions, intersections, and simple types
+- Use PascalCase for type and interface names
+- Example:
+  ```typescript
+  interface UserData {
+    id: number;
+    name: string;
+    email: string;
+  }
+
+  type Status = 'active' | 'inactive' | 'pending';
+  ```
+
+---
+
+## Python
+
+### General
+- Follow the [PEP 8](https://www.python.org/dev/peps/pep-0008/) style guide for Python code
+- Use meaningful variable names in snake_case
+- Use PascalCase for class names
+- Use UPPERCASE for constants
+
+### Code Structure
+- Embrace Python's simplicity. Use built-in data structures like lists, dictionaries, and sets
+- Avoid creating classes for simple data containers when a dictionary or named tuple will suffice
+- Favor composition over inheritance
+- Keep functions and methods small and focused on a single task
+
+### Python Features
+- Use list comprehensions and generator expressions judiciously. Prioritise readability
+- Leverage Python's standard library before adding external dependencies
+- Use context managers (with statements) for resource management
+- Use decorators where they simplify code
+- Be cautious with metaprogramming features like metaclasses and descriptors
+
+### Type Hints
+- Use type hints in larger projects to improve readability and catch errors early
+- Consider using a static type checker like mypy
+
+### Performance
+- Write clear, correct code first. Profile before optimising
+- Remember: premature optimisation is the root of all evil
+
+### Dependencies
+- Use virtual environments to isolate project dependencies
+- Maintain a requirements.txt or Pipfile to specify exact versions of dependencies
+
+### Example
+```python
+from typing import List, Dict
+
+def process_user_data(users: List[Dict[str, str]]) -> List[str]:
+    """
+    Process user data and return a list of usernames.
+    """
+    return [user['username'] for user in users if 'username' in user]
+
+# Usage
+user_data = [{'username': 'alice'}, {'email': 'bob@example.com'}, {'username': 'charlie'}]
+usernames = process_user_data(user_data)
+```
+
+## General Practices
+
+[Existing general practices remain as they are]
+
+- Avoid unnecessary abstractions. Keep your code straightforward and direct, especially in Python
+
+Remember to keep this document updated as our practices evolve. Regular team discussions on these rules will help ensure everyone is aligned and can contribute to improving our development process.
+
+---
+
+## Go
+
+### General
+- Follow the [Effective Go](https://golang.org/doc/effective_go) guidelines
+- Use `gofmt` to format your code
+- Use meaningful variable names in camelCase
+- Use PascalCase for exported functions and types
+
+### SQLC
+- Keep SQL queries in separate `.sql` files
+- Use meaningful names for queries, prefixed with the operation type (e.g., `GetUser`, `CreatePost`)
+- Example:
+  ```sql
+  -- name: GetUserByID :one
+  SELECT * FROM users WHERE id = $1;
+  ```
+
+### Bob (Dynamic Query Building)
+- Use consistent naming conventions for query builders
+- Prefer method chaining for readability
+- Example:
+  ```go
+  query := bob.Select("id", "name").
+    From("users").
+    Where("age > ?", 18).
+    OrderBy("name ASC")
+  ```
+
+## API (ConnectRPC & Protocol Buffers)
+
+### Protocol Buffers
+- Use PascalCase for message and service names
+- Use snake_case for field names
+- Version your proto files (e.g., `user_service_v1.proto`)
+- Example:
+  ```protobuf
+  syntax = "proto3";
+
+  message UserProfile {
+    int32 user_id = 1;
+    string full_name = 2;
+    string email_address = 3;
+  }
+  ```
+
+## General Practices
+
+- Write clear and concise comments for complex logic
+- Maintain up-to-date documentation
+- Use meaningful commit messages following [Conventional Commits](https://www.conventionalcommits.org/)
+- Conduct code reviews for all changes
+- Write unit tests for new features and bug fixes
+
+Remember to keep this document updated as our practices evolve. Regular team discussions on these rules will help ensure everyone is aligned and can contribute to improving our development process.
