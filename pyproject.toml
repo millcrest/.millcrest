@@ -1,0 +1,123 @@
+[tool.ruff]
+line-length = 100
+lint.select = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "I",
+    "N",
+    "Q",
+    "S",
+    "T",
+    "W",
+    "ANN",
+    "ARG",
+    "BLE",
+    "COM",
+    "DJ",
+    "DTZ",
+    "EM",
+    "ERA",
+    "EXE",
+    "FBT",
+    "ICN",
+    "INP",
+    "ISC",
+    "NPY",
+    "PD",
+    "PGH",
+    "PIE",
+    "PL",
+    "PT",
+    "PTH",
+    "PYI",
+    "RET",
+    "RSE",
+    "RUF",
+    "SIM",
+    "SLF",
+    "TCH",
+    "TID",
+    "TRY",
+    "UP",
+    "YTT",
+]
+lint.ignore = [
+    "A003",
+    "ANN",
+    "B905",
+    "BLE001",
+    "D",
+    "DTZ",
+    "ERA001",
+    "FBT",
+    "G004",
+    "INP001",
+    "N802",
+    "N803",
+    "N806",
+    "N816",
+    "N999",
+    "NPY002",
+    "PGH003",
+    "PLR2004",
+    "Q000",
+    "RET504",
+    "RUF009",
+    "S311",
+    "S501",
+    "S605",
+    "T20",
+    "TCH001",
+    "TCH003",
+    "TRY301",
+    "TRY400",
+]
+show-fixes = true
+
+[tool.ruff.lint.mccabe]
+max-complexity = 15
+
+[tool.ruff.lint.pylint]
+allow-magic-value-types = ["int"]
+max-args = 15
+max-branches = 20
+max-statements = 100
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+include_trailing_comma = true
+use_parentheses = true
+ensure_newline_before_comments = true
+multi_line_output = 3
+force_grid_wrap = 0
+
+[tool.datamodel-codegen]
+disable-timestamp = true
+reuse-model = true
+use-default = true
+use-double-quotes = true
+use-default-kwarg = true
+strict-nullable = true
+wrap-string-literal = true
+capitalise-enum-members = true
+collapse-root-models = true
+use-field-description = true
+use-schema-description = true
+set-default-enum-member = true
+use-standard-collections = true
+field-constraints = true
+use-union-operator = true
+# snake-case-field = true
+# strip-default-none = false
+target-python-version = "3.12"
+use-unique-items-as-set = true
