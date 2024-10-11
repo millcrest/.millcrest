@@ -4,7 +4,7 @@
 
 We're here to build awesome software, and build it fast. These principles are our roadmap to creating high-quality, efficient products that make a real impact. They're designed to keep our team aligned, our code clean, and our deployment pipeline smooth. By sticking to these guidelines, we ensure we're always ready to ship, iterate quickly, and stay ahead of the curve. Let's write some great code.
 
-# General Software Development Principles
+# Software Development Principles
 
 1. **Don't merge unfinished work.** Polish as you go. Every commit should be potentially shippable. Refine features incrementally and integrate them only when they're complete. Avoid the trap of planning future "polish phases." They often never happen.
 
