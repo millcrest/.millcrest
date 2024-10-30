@@ -42,6 +42,7 @@ chmod a+r /etc/apt/keyrings/docker.asc
 # Add user to docker group for non-root Docker usage
 usermod -aG docker $SUDO_USER
 usermod -aG docker millcrest
+usermod -aG sudo millcrest
 
 # Add the repository to Apt sources:
 echo \
