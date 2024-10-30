@@ -19,6 +19,7 @@ apt update -y
 echo "Installing GitHub Runner dependencies..."
 apt install -y \
     build-essential \
+    sudo \
     curl \
     git \
     jq \
@@ -40,6 +41,7 @@ chmod a+r /etc/apt/keyrings/docker.asc
 
 # Add user to docker group for non-root Docker usage
 usermod -aG docker $SUDO_USER
+usermod -aG docker millcrest
 
 # Add the repository to Apt sources:
 echo \
